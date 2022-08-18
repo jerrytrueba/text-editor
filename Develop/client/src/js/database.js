@@ -19,7 +19,7 @@ const tx = jateDB.transaction("jate", "readwrite");
 const store = tx.objectStore("jate");
 const request = store.put({ jate: content });
 const result = await request;
-console.log("Data saved to the datebase", result);
+console.log("Added to the datebase", result);
 };
 
 // TODO: Add logic for a method that gets all the content from the database
@@ -29,7 +29,8 @@ export const getDb = async () => {
   const store = tx.objectStore("jate");
   const request = store.getAll();
   const result = await request;
-  console.log(result);
+  console.log('Results: ', result);
+  return result.value;
 };
 
 initdb();

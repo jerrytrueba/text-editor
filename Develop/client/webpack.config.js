@@ -31,7 +31,7 @@ module.exports = () => {
         inject: true,
         name: "Just Another Text Editor",
         short_name: "JATE",
-        description: "Text editor with offline capabilities using IndexDB",
+        description: "Text editor",
         background_color: "#225ca3",
         theme_color: "#225ca3",
         start_url: "/",
@@ -49,16 +49,13 @@ module.exports = () => {
     module: {
       rules: [
         {
-          test: /\.css$/,
+          test: /\.css$/i,
           exclude: /node_modules/,
           use: {
             loader: "babel-loader",
             options: {
               presets: ["@babel/preset-env"],
-              plugins: [
-                "@babel/plugin-proposal-object-rest-spread",
-                "@babel/transform-runtime",
-              ],
+              plugins: ["@babel/plugin-proposal-object-rest-spread", "@babel/transform-runtime"],
             },
           },
         },
